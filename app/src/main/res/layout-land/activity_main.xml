@@ -5,6 +5,31 @@
     android:layout_height="match_parent"
     android:background="@color/dark_grey">
 
+    <View
+        android:id="@+id/cover_gate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/orange"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"
+        android:focusable="true"
+        app:borderWidth="5dp"
+        android:tint="@color/white"
+        app:srcCompat="@drawable/ic_baseline_calculate_24"
+        android:layout_margin="16dp"
+        android:id="@+id/floatingActionButton"
+        />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/brn_undo"
         style="@style/button_style_top"

@@ -1,32 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_grey"
-    app:layoutDescription="@xml/activity_main_scene"
     tools:context=".controller.MainActivity">
+
+    <View
+        android:id="@+id/cover_gate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/orange"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"
+        android:focusable="true"
+        app:borderWidth="5dp"
+        android:tint="@color/white"
+        app:srcCompat="@drawable/ic_baseline_calculate_24"
+        android:layout_margin="16dp"
+        android:id="@+id/floatingActionButton"
+        />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/brn_undo"
         style="@style/button_style_top"
-        android:fontFamily="sans-serif-condensed"
         android:text="@string/undo"
-        android:textSize="40sp" />
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="40sp"
+       />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_redo"
         style="@style/button_style_top"
-        android:text="@string/redo"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:text="@string/redo" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_backspace"
         style="@style/button_style_top"
-        android:text="@string/backspace"
+        app:layout_constraintWidth_percent="0.5"
         android:textSize="30sp"
-        app:layout_constraintWidth_percent="0.5" />
+        android:text="@string/backspace" />
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -95,9 +123,9 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_ac"
+        android:textSize="30sp"
         style="@style/button_style_top"
-        android:text="@string/ac"
-        android:textSize="30sp" />
+        android:text="@string/ac" />
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -131,7 +159,6 @@
         android:id="@+id/btn_equals"
         style="@style/button_style_operators"
         android:text="@string/_equals" />
-
     <TextView
         android:id="@+id/edit_result_top"
         android:layout_width="0dp"
@@ -143,13 +170,12 @@
         android:paddingHorizontal="32dp"
         android:paddingBottom="16dp"
         android:textColor="@color/orange"
-        android:textSize="56sp"
         android:textStyle="bold"
+        android:textSize="56sp"
         app:layout_constraintBottom_toTopOf="@id/guideline_result_seperator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"  />
     <TextView
         android:id="@+id/edit_result"
         android:layout_width="0dp"
@@ -167,8 +193,7 @@
         app:layout_constraintBottom_toTopOf="@id/guideline_topest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline_result_seperator" />
-
+        app:layout_constraintTop_toBottomOf="@id/guideline_result_seperator"  />
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flow_top"
         android:layout_width="0dp"
@@ -181,13 +206,11 @@
         app:layout_constraintBottom_toTopOf="@id/guideline_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline_topest" />
-
+        app:layout_constraintTop_toBottomOf="@id/guideline_topest"  />
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flow"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:visibility="visible"
         app:constraint_referenced_ids="btn_ac,btn_s1,btn_s2,btn_divide,btn7,btn8,btn9,btn_multiply,button_4,button_5,button_6,btn_minus,btn1,btn2,btn3,btn_plus,btn_zero,btn_dot,btn_equals"
         app:flow_horizontalStyle="spread"
         app:flow_maxElementsWrap="4"
@@ -196,33 +219,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline_top" />
-    <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flow2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="visible"
-        app:constraint_referenced_ids="btn_ac,btn_s1,btn_s2,btn_divide,btn7,btn8,btn9,btn_multiply,button_4,button_5,button_6,btn_minus,btn1,btn2,btn3,btn_plus,btn_zero,btn_dot,btn_equals"
-        app:flow_horizontalStyle="spread"
-        app:flow_maxElementsWrap="4"
-        app:flow_wrapMode="chain"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintTop_toTopOf="@+id/guideline_top" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_result_seperator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.16" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_topest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.31" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_top"
         android:layout_width="wrap_content"
@@ -238,7 +247,8 @@
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_unary_buttons"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_other_buttons"
@@ -246,4 +256,4 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="btn_s1,btn_s2,btn_backspace, btn_ac,btn_plus,btn_minus,btn_multiply,btn_divide,btn_dot,btn_zero,btn1,btn2,btn3,button_4,button_5,button_6,btn7,btn8,btn9" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

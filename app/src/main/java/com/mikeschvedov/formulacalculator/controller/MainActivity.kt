@@ -1,20 +1,20 @@
 package com.mikeschvedov.formulacalculator.controller
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
+import android.view.animation.*
 import android.widget.Button
-import androidx.constraintlayout.helper.widget.Carousel
-import androidx.constraintlayout.helper.widget.Flow
+import androidx.appcompat.app.AppCompatActivity
 import com.mikeschvedov.formulacalculator.R
 import com.mikeschvedov.formulacalculator.databinding.ActivityMainBinding
 import com.mikeschvedov.formulacalculator.model.Calculator
 import com.mikeschvedov.formulacalculator.model.CalculatorBase
 import com.mikeschvedov.formulacalculator.model.MemoryManager
-
 import com.mikeschvedov.formulacalculator.utils.formatFromDoubleToString
 import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,8 +47,24 @@ class MainActivity : AppCompatActivity() {
 
         setViewsIntoLists()
         //TODO read edittext filter //validate formula
-        //TODO motionLayout
+        runFadeOutAnimation()
 
+        binding.floatingActionButton.setOnClickListener {
+
+            val orientation = this.resources.configuration.orientation
+            requestedOrientation = if (orientation == Configuration.ORIENTATION_PORTRAIT){
+                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            }else{
+                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            }
+
+        }
+    }
+
+    private fun runFadeOutAnimation() {
+        val fadeoutAnimation = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_out)
+        binding.coverGate.animation = fadeoutAnimation
+        binding.coverGate.startAnimation(fadeoutAnimation)
     }
 
     // This callback is called only when there is a saved instance that is previously saved by using

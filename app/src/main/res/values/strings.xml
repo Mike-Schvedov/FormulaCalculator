@@ -57,6 +57,7 @@
     <string name="backspace">⌫</string>
     <string name="ac">AC</string>
     <string name="c">C</string>
+    <string name="scientific">Scientific</string>
 
 
 </resources>
