@@ -2,7 +2,8 @@ package com.mikeschvedov.formulacalculator.model
 
 import com.mikeschvedov.formulacalculator.utils.ExpressionTranslator
 import com.mikeschvedov.formulacalculator.utils.Validator
-import kotlinx.parcelize.Parcelize
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 
 abstract class CalculatorBase(var operationsMap: MutableMap<String, MathOperation>) {
@@ -15,23 +16,13 @@ abstract class CalculatorBase(var operationsMap: MutableMap<String, MathOperatio
         memoryManager = _memoryManager
     }
 
-    /*private fun performOperation(operation: String) {
-        val operationType = operationsMap[operation] ?: throw RuntimeException("No such operator")
-        val result = when (operationType) {
-            is MathOperation.Binary -> operationType.op.calculate(
-                memoryManager.memory_slot1,
-                memoryManager.memory_slot2
-            )
-            is MathOperation.Unary -> operationType.op.calculate(memoryManager.memory_slot1)
-            is MathOperation.Const -> operationType.op.calculate()
-            else -> return
-        }
-        // Saving the result
-        memoryManager.memory_slot1 = result
-    }*/
-
     fun equalTapped(expression: String): Double {
-        return converter.evaluatePostfix(converter.infixToPostfix(converter.expressionStringToList(expression)))
+        val sss = converter.evaluatePostfix(
+            converter.infixToPostfix(
+                converter.expressionStringToList(expression)
+            )
+        )
+        return BigDecimal(sss).setScale(3, RoundingMode.HALF_EVEN).toDouble()
     }
 
     fun addToUndoList(formula_input: String) {

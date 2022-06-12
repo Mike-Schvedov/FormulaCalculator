@@ -42,5 +42,10 @@ class CalculatorTest{
         assertEquals(34.0, cal.equalTapped("34"), 0.0)
     }
 
+    @Test
+    fun equalTapped_with_division(){
+        assertEquals(0.833, cal.equalTapped("5÷6"), 0.0)
+    }
+
 }
 

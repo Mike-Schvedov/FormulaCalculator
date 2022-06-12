@@ -99,7 +99,6 @@ class MainActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState)
     }
 
-
     private fun digitTapped(view: View) {
         with(view as Button) {
             when (text) {

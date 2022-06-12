@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FormulaCalculator</string>
+    <string name="app_name">CalculatorMS</string>
     <string name="text_view_hint">0</string>
     <string name="_7">7</string>
     <string name="_8">8</string>
